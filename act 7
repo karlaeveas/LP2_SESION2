@@ -1,0 +1,51 @@
+#include <iostream>
+#include <string>
+using namespace std;
+class Libro{
+private:
+    string titulo; // atributos
+    string autor;
+    string genero;
+public:
+    Libro(string titulo, string autor, string genero) { // constructor
+        this->titulo = titulo;
+        this->autor = autor;
+        this->genero = genero;
+    }
+    string getTitulo() { //obtener el valor de los atributos privados de la clase
+        return titulo;
+    }
+    string getAutor() {
+        return autor;
+    }
+    string getGenero() {
+        return genero;
+    }
+    void setTitulo(string titulo) { //modificar el valor de los atributos privados de la clase
+        this->titulo = titulo;
+    }
+    void setAutor(string autor) {
+        this->autor = autor;
+    }
+    void setGenero(string genero) {
+        this->genero = genero;
+    }
+};
+int main() {
+    Libro libro1("Crear o Morir", "Andres Oppenheimer","No ficcion");
+    cout << "TITULO: " << libro1.getTitulo() << endl;
+    cout << "AUTOR: " << libro1.getAutor() << endl;
+    cout << "GENERO: " << libro1.getGenero() << endl;
+    libro1.setGenero("Analisis politico y economico");
+    cout << "GENERO ACTUALIZADO: " << libro1.getGenero() << endl;
+    cout << "-------------------" << endl;
+
+    Libro libro2("Cien años de soledad", "Gabriel Marquez", "Novela");
+    cout << "TITULO: " << libro2.getTitulo() << endl;
+    cout << "AUTOR: " << libro2.getAutor() << endl;
+    cout << "GENERO: " << libro2.getGenero() << endl;
+    libro2.setAutor("Gabriel Garcia Marquez");
+    cout << "AUTOR ACTUALIZADO: " << libro2.getAutor() << endl;
+    cout << "-------------------" << endl;
+    return 0;
+}

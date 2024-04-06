@@ -1,0 +1,43 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+class CuentaBancaria{
+private:
+    double saldo; // atributos
+    int numerocuenta;
+public:
+    CuentaBancaria(double saldo, int numerocuenta) { // constructor
+        this->saldo = saldo;
+        this->numerocuenta = numerocuenta;
+    }
+    double getSaldo() { //obtener el valor de los atributos privados de la clase
+        return saldo;
+    }
+    int getNumero() {
+        return numerocuenta;
+    }
+    void setSaldo(double saldo) { //modificar el valor de los atributos privados de la clase
+        this->saldo = saldo;
+    }
+    void setNumero(int numerocuenta) {
+        this->numerocuenta = numerocuenta;
+    }
+};
+
+int main() {
+    CuentaBancaria cuenta1(1000, 222111000);
+    cout << "SALDO: " << cuenta1.getSaldo() << endl;
+    cout << "NUMERO DE TARJETA: " << cuenta1.getNumero() << endl;
+    cuenta1.setSaldo(5000);
+    cout << "SALDO ACTUALIZADO: " << cuenta1.getSaldo() << endl;
+    cout << "-------------------" << endl;
+
+    CuentaBancaria cuenta2(8000, 222111333);
+    cout << "SALDO: " << cuenta2.getSaldo() << endl;
+    cout << "NUMERO DE TARJETA: " << cuenta2.getNumero() << endl;
+    cuenta2.setNumero(222111888);
+    cout << "NUMERO ACTUALIZADO: " << cuenta2.getNumero() << endl;
+    cout << "-------------------" << endl;
+    return 0;
+}

@@ -1,0 +1,27 @@
+#include <iostream>
+#include <string>
+using namespace std;
+class Coche {
+private:
+    string modelo;
+    int year;
+    double velocidad;
+public:
+    Coche(string modelo, int year, double velocidad) {
+        this->modelo = modelo;
+        this->year = year;
+        this->velocidad = velocidad;
+    }
+    void acelerar(double cantidad) {
+        cout << "El coche " << modelo << " ha acelerado" << endl;
+    }
+    void frenar(double cantidad) {
+        cout << "El coche " << modelo << " ha frenado" << endl;
+    }
+};
+int main() {
+    Coche coche1("volkswagen", 1937, 0);
+    coche1.acelerar(50); // Acelera mucho
+    coche1.frenar(30); // Se frena
+    return 0;
+}

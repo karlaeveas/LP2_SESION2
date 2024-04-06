@@ -1,0 +1,43 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+class Tiendas {
+private:
+    string nombre;      // atributos
+    string direccion;
+    string tipo_tienda;
+    int stock;
+
+public:
+    Tiendas(string nombre, string direccion, string tipo_tienda, int stock) { // constructor
+        this->nombre = nombre;
+        this->direccion = direccion;
+        this->tipo_tienda = tipo_tienda;
+        this->stock = stock;
+    }
+
+    void vender_productos(int cantidad) {
+        if (cantidad <= stock) { //menor o igual que
+            stock = stock - cantidad; // Restamos la cantidad vendida al stock actual
+            cout << "Se han vendido " << cantidad << " productos en la tienda " << nombre << endl;
+        }
+        else {
+            cout << "No hay suficientes productos en stock para realizar la venta en la tienda " << nombre << endl;
+        }
+    }
+
+    void agregar_productos(int cantidad) {
+        stock = stock + cantidad;  // Sumamos la cantidad de productos al stock actual
+        cout << "Se han agregado " << cantidad << " productos a la tienda " << nombre << endl;
+    }
+};
+
+int main() {
+    Tiendas tienda("Tambo", "Calle Principal 123", "Supermercado", 100);//100 productos en stock
+
+    tienda.vender_productos(10);
+    tienda.agregar_productos(20);
+
+    return 0;
+}

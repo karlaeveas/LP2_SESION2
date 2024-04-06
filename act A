@@ -1,0 +1,48 @@
+#include <iostream>
+#include <string>
+#include <vector>
+using namespace std;
+class Producto {
+private:
+    string nombre;
+    double precio;
+    int cantidad;
+public:
+    Producto(string nombre, double precio, int cantidad) {
+        this->nombre = nombre;
+        this->precio = precio;
+        this->cantidad = cantidad;
+    }
+    string getNombre() const { // Métodos para obtener los atributos de Producto
+        return nombre;
+    }
+    double getPrecio() const {
+        return precio;
+    }
+    int getCantidad() const {
+        return cantidad;
+    }
+    double calcularPrecioTotal() const {
+        return precio * cantidad;
+    }
+};
+
+class Factura {
+private:
+    vector<Producto> productos;
+public:
+    void agregarProducto(Producto& producto) {
+        productos.push_back(producto);
+    }
+};
+int main() {
+    Producto producto("Laptop", 1000.0, 2);// Crear instancia de un producto
+    Factura factura;// Crear instancia de la factura
+    factura.agregarProducto(producto);// Agregar el producto a la factura
+
+    cout << "NOMBRE: " << producto.getNombre() << endl;
+    cout << "PRECIO: " << producto.getPrecio() << endl;
+    cout << "CANTIDAD: " << producto.getCantidad() << endl;
+    cout << "TOTAL: " << producto.calcularPrecioTotal() << endl;
+    return 0;
+}

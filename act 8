@@ -1,0 +1,43 @@
+#include <iostream>
+#include <string>
+using namespace std;
+class Factura{
+private:
+    int numerofactura; // atributos
+    string fechaemision;
+    int monto;
+public:
+    Factura(int numerofactura, string fechaemision, int monto) { // constructor
+        this->numerofactura = numerofactura;
+        this->fechaemision = fechaemision;
+        this->monto = monto;
+    }
+    int getNumero() { //obtener el valor de los atributos privados de la clase
+        return numerofactura;
+    }
+    string getFecha() {
+        return fechaemision;
+    }
+    int getMonto() {
+        return monto;
+    }
+    void setNumero(int numerofactura) { //modificar el valor de los atributos privados de la clase
+        this->numerofactura = numerofactura;
+    }
+    void setFecha(string fechaemision) {
+        this->fechaemision = fechaemision;
+    }
+    void setMonto(int monto) {
+        this->monto = monto;
+    }
+};
+int main() {
+    Factura factura1(1234, "01/04/2024", 500);
+    cout << "NUMERO DE FACTURA: " << factura1.getNumero() << endl;
+    cout << "FECHA DE EMISION: " << factura1.getFecha() << endl;
+    cout << "MONTO: $" << factura1.getMonto() << endl;
+
+    factura1.setMonto(750);
+    cout << "MONTO ACTUALIZADO: $" << factura1.getMonto() << endl;
+    return 0;
+}

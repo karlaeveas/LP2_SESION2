@@ -1,0 +1,42 @@
+#include <iostream>
+#include <string>
+using namespace std;
+class Estudiante {
+private:
+    string nombre;  //atributos
+    int edad;
+    string grado;
+    int puntaje;
+public:
+    Estudiante (string nombre,int edad,string grado,int puntaje) { //parametros
+        this->nombre = nombre;
+        this->edad = edad;
+        this->grado = grado;
+        this->puntaje = puntaje;
+    }
+    void tomar_examen() {
+        cout << "El estudiante " << nombre << " tomo el examen " << endl;
+    }
+    void calificar_examen(int puntaje) {
+        if (puntaje >= 12) {
+            cout << "El estudiante " << nombre << " ha aprobado el examen con un puntaje de " << puntaje << endl;
+        }
+        else {
+            cout << "El estudiante " << nombre << " ha reprobado el examen con un puntaje de " << puntaje << endl;
+        }
+    }
+};
+int main() {
+    Estudiante alumno1("Jimenez Mollo, Rafaela Micaela",6,"primer grado",0);
+    Estudiante alumno2("Arias Veas, Alexander Isaias",7, "segundo grado",0);
+    Estudiante alumno3("Ramirez Cordova, Mateo Juan", 9, "cuarto grado",0);
+
+    alumno1.tomar_examen();
+    alumno2.tomar_examen();
+    alumno3.tomar_examen();
+    alumno1.calificar_examen(15); 
+    alumno2.calificar_examen(5);
+    alumno3.calificar_examen(11);
+
+    return 0;
+}

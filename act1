@@ -1,0 +1,38 @@
+#include <iostream>
+#include <string>
+using namespace std;
+class Animal { // Clase
+private:  // Atributos privados, accesibles solo dentro de la clase
+    string nombre;
+    int edad;
+    string tipo_animal;
+public: // Métodos públicos, accesibles fuera de la clase
+    // Constructor con sus parámetros
+    Animal(string nombre, int edad, string tipo_animal) {
+        this->nombre = nombre; 
+        this->edad = edad;
+        this->tipo_animal = tipo_animal;
+        // "this" es un puntero implícito que apunta a la instancia del objeto
+        // El primer "nombre" se refiere al atributo de la clase, el segundo "nombre" es el parámetro del constructor
+    }
+    // Método para alimentar al animal
+    void alimentar() {
+        cout << nombre << " es un " << tipo_animal << " y fue alimentado" << endl;
+    }
+    // Método para que el animal haga un sonido
+    void hacer_sonido() {
+        cout << nombre << " es un " << tipo_animal << " y hizo un sonido" << endl;
+    }
+};
+int main()
+{
+    // Creación de objetos de la clase Animal
+    Animal oso("Noe", 5, "panda");
+    Animal perro("Lili", 8, "snauzer");
+    // Llamadas a los métodos de los objetos
+    oso.hacer_sonido();
+    oso.alimentar();
+    perro.hacer_sonido();
+    perro.alimentar();
+    return 0;
+}

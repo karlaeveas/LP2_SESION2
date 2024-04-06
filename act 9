@@ -1,0 +1,44 @@
+#include <iostream>
+#include <string>
+using namespace std;
+class Libro {
+private:
+    string titulo;
+    bool prestado;
+public:
+    Libro(string titulo, bool prestado=false) {
+        this->titulo = titulo;
+        this->prestado = prestado;
+    }
+    void prestarLibro() {
+        if (!prestado) { //no prestado
+            prestado = true;
+            cout << "El libro \"" << titulo << "\" ha sido prestado." << endl;
+        }
+        else {
+            cout << "El libro \"" << titulo << "\" ya esta prestado." << endl;
+        }
+    }
+    void devolverLibro() {
+        if (prestado) { //prestado
+            prestado = false;
+            cout << "El libro \"" << titulo << "\" ha sido devuelto." << endl;
+        }
+        else {
+            cout << "El libro \"" << titulo << "\" no estaba prestado." << endl;
+        }
+    }
+};
+class Biblioteca {
+public:
+    void prestarLibro(Libro& libro) { //parámetro de referencia de un objeto de la clase 
+        libro.prestarLibro();
+    }
+};
+int main() {
+    Biblioteca biblioteca;// Crear instancia de la biblioteca
+    Libro libro("Cien años de soledad", false);// Crear instancia de un libro
+    biblioteca.prestarLibro(libro);// Prestar el libro desde la biblioteca
+    libro.devolverLibro();// Devolver el libro a la biblioteca
+    return 0;
+}

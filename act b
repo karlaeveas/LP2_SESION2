@@ -1,0 +1,48 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+class Rueda {
+private:
+    double tamano;
+public:
+    Rueda(double tamano) {
+        this->tamano = tamano;
+    }
+
+    double getTamano() const {
+        return tamano;
+    }
+};
+class Carro {
+private:
+    Rueda ruedas[4];
+public:
+    Carro(const Rueda& ruedaA, const Rueda& ruedaB, const Rueda& ruedaC, const Rueda& ruedaD) :
+        ruedas{ ruedaA, ruedaB, ruedaC, ruedaD } {}
+
+    void mover() {
+        cout << "El carro se esta moviendo." << endl;
+    }
+
+    void cambiarRueda(int posicion, const Rueda& nuevaRueda) {
+        if (posicion >= 0 && posicion < 4) {
+            ruedas[posicion] = nuevaRueda;
+            cout << "Se ha cambiado la rueda en la posicion " << posicion << "." << endl;
+        }
+        else {
+            cout << "Posición de rueda invalida." << endl;
+        }
+    }
+};
+
+int main() {
+    Rueda ruedaPequena(15.0);
+    Rueda ruedaGrande(20.0);
+
+    Carro miCarro(ruedaPequena, ruedaPequena, ruedaPequena, ruedaPequena);
+    miCarro.mover();
+    miCarro.cambiarRueda(2, ruedaGrande);
+
+    return 0;
+}

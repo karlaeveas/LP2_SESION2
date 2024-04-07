@@ -1,0 +1,49 @@
+#include <iostream>
+#include <string>
+#include <vector>
+using namespace std;
+class Tienda {
+private:
+    struct Producto {
+        string nombre;
+        double precio;
+    };
+    vector<Producto> productosDisponibles;
+public:
+    Tienda() { 
+        productosDisponibles.push_back({ "Leche", 2.5 }); //Inicializar productos
+        productosDisponibles.push_back({ "Huevo", 0.2 });
+        productosDisponibles.push_back({ "Pan", 1.0 });  }
+    void mostrarProductosDisponibles() const {
+        cout << "Productos disponibles:" << endl;
+        for (const auto& producto : productosDisponibles) {
+            cout << producto.nombre << " - Precio: $" << producto.precio << endl;
+        }
+        cout << "-----------------------------" << endl;
+    }
+};
+class Cliente {
+private:
+    vector<pair<string, double>> listaCompra; //Par de nombre de producto y precio
+public:
+    void agregarProductoAListaCompra(string producto, double precio) {
+        listaCompra.push_back({ producto, precio }); }
+    void pagarCuenta() {
+        double total = 0;
+        cout << "Lista de compras:" << endl;
+        for (const auto& producto : listaCompra) {
+            cout << producto.first << " - Precio: $" << producto.second << endl;
+            total += producto.second; }
+        cout << "Total a pagar: $" << total << endl;
+        listaCompra.clear(); //Limpiar la lista de compras después del pago
+    }
+};
+int main() {
+    Tienda miTienda;
+    miTienda.mostrarProductosDisponibles();
+    Cliente cliente;
+    cliente.agregarProductoAListaCompra("Leche", 2.5); //Agregar productos a la lista de compras
+    cliente.agregarProductoAListaCompra("Pan", 1.0);
+    cliente.pagarCuenta();
+    return 0;
+}
